@@ -81,7 +81,7 @@ This is a simple version of a **strategy pattern**: the same recommender functio
 
 ### Mermaid flowchart
 
-```mermaid
+```text
 flowchart TD
     A[User Profile Input<br/>genre, mood, energy, tempo, era] --> B[Load songs.csv]
     B --> C[Loop through each song]
