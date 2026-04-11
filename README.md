@@ -2,32 +2,86 @@
 
 ## Project Summary
 
-In this project you will build and explain a small music recommender system.
+This project is a **content-based music recommender simulator**. It compares a user profile to a small song catalog and scores each song using features like genre, mood, energy, tempo, valence, danceability, acousticness, decade, popularity, and mood tags. The system then ranks the songs, applies a small diversity penalty so one artist or genre does not take over the whole list, and prints a readable explanation for why each recommendation was chosen.
 
-Your goal is to:
+Real platforms like Spotify, YouTube, and TikTok usually combine **two big ideas**:
 
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
+- **Collaborative filtering:** recommend items that similar users liked, skipped less, saved, or replayed.
+- **Content-based filtering:** recommend items with attributes similar to things the user already enjoys, like genre, tempo, mood, or energy.
 
-Replace this paragraph with your own summary of what your version does.
+In those systems, the **input data** includes user actions and song/video features, **user preferences** are inferred from patterns in that data, and the **ranking model** chooses what to show first. My simulator only uses the content-based side, so it is smaller, easier to explain, and more transparent.
 
 ---
 
 ## How The System Works
 
-Explain your design in plain language.
+### Features used by each song
 
-Some prompts to answer:
+Each song in `data/songs.csv` includes:
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+- `genre`
+- `mood`
+- `energy`
+- `tempo_bpm`
+- `valence`
+- `danceability`
+- `acousticness`
+- `popularity`
+- `release_decade`
+- `instrumentalness`
+- `liveness`
+- `mood_tags`
 
-You can include a simple diagram or bullet list if helpful.
+The starter file had 10 songs. I expanded it to **20 songs** and added **5 extra attributes**: popularity, release decade, instrumentalness, liveness, and mood tags.
+
+### What the user profile stores
+
+A user profile stores the listener's target preferences:
+
+- favorite genre
+- favorite mood
+- target energy
+- target tempo
+- target valence
+- target danceability
+- whether they like acoustic songs
+- preferred decade
+- desired tags
+- ranking mode
+
+### Scoring rule
+
+The recommender gives points in two ways:
+
+1. **Exact matches** for categorical features.
+   - genre match adds a bigger bonus
+   - mood match adds a medium bonus
+2. **Closeness scores** for numeric features.
+   - songs get more points when their energy, tempo, valence, danceability, or acousticness are closer to the user's target values
+
+It also adds:
+
+- a small bonus for matching detailed `mood_tags`
+- a small bonus when the release decade is close to the user's preferred era
+- a small popularity prior
+
+### Ranking rule
+
+After every song gets a numeric score, the system sorts the catalog from highest to lowest. Then it runs a **diversity reranker** that subtracts a small amount if an artist or genre already appears in the top picks. That makes the top 5 a little less repetitive.
+
+### Ranking modes
+
+The project includes three scoring strategies:
+
+- `balanced`
+- `genre_first`
+- `energy_similarity`
+
+This is a simple version of a **strategy pattern**: the same recommender function runs, but different weight presets change what matters most.
+
+### Mermaid flowchart
+
+
 
 ---
 
