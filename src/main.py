@@ -64,22 +64,62 @@ PROFILES = {
     },
 }
 
+
+def render_profile(name: str, prefs: dict, songs: list[dict]) -> None:
+    """Print one recommendation table for one profile."""
+    recommendations = recommend_songs(prefs, songs, k=5)
+    rows = []
+    for rank, (song, score, explanation) in enumerate(recommendations, start=1):
+        rows.append(
+            [
+                rank,
+                song["title"],
+                song["artist"],
+                song["genre"],
+                f"{score:.2f}",
+                explanation,
+            ]
+        )
+
+    print(f"\n{'=' * 100}")
+    print(f"PROFILE: {name} | mode={prefs['ranking_mode']}")
+    print(f"{'=' * 100}")
+    print(
+        tabulate(
+            rows,
+            headers=["#", "Title", "Artist", "Genre", "Score", "Why it ranked"],
+            tablefmt="grid",
+            maxcolwidths=[None, 18, 16, 12, None, 56],
+        )
+    )
+
+
 def main() -> None:
     songs = load_songs("data/songs.csv") 
 
     # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    # user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
 
-    recommendations = recommend_songs(user_prefs, songs, k=5)
+    # recommendations = recommend_songs(user_prefs, songs, k=5)
 
-    print("\nTop recommendations:\n")
-    for rec in recommendations:
-        # You decide the structure of each returned item.
-        # A common pattern is: (song, score, explanation)
-        song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
-        print()
+    # print("\nTop recommendations:\n")
+    # for rec in recommendations:
+    #     # You decide the structure of each returned item.
+    #     # A common pattern is: (song, score, explanation)
+    #     song, score, explanation = rec
+    #     print(f"{song['title']} - Score: {score:.2f}")
+    #     print(f"Because: {explanation}")
+    #     print()
+
+    csv_path = Path(__file__).resolve().parents[1] / "data" / "songs.csv"
+    songs = load_songs(str(csv_path))
+
+    print(f"Loaded songs: {len(songs)}")
+    print("Ranking modes available: balanced, genre_first, energy_similarity")
+    print("Diversity reranking is enabled to avoid too many repeats from one artist or genre.")
+
+    for name, prefs in PROFILES.items():
+        render_profile(name, prefs, songs)
 
 
 if __name__ == "__main__":
