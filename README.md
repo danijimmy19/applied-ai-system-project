@@ -264,8 +264,6 @@ Response: The existing recommendation system is very limited to what it can do.
 
 ## Reflection
 
-Read and complete `model_card.md`:
-
 [**Model Card**](model_card.md)
 
 Write 1 to 2 paragraphs here about what you learned:
