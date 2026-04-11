@@ -81,7 +81,9 @@ This is a simple version of a **strategy pattern**: the same recommender functio
 
 ### Mermaid flowchart
 
-```text
+![Flowchart](docs/flowchart-mmd.png)
+
+<!-- ```text
 flowchart TD
     A[User Profile Input<br/>genre, mood, energy, tempo, era] --> B[Load songs.csv]
     B --> C[Loop through each song]
@@ -108,7 +110,7 @@ flowchart TD
     J --> K[Select top K recommendations]
     K --> L[Display formatted CLI table]
     L --> N[User sees titles, scores, and reasons]
-```
+``` -->
 
 ---
 
@@ -117,10 +119,10 @@ flowchart TD
 ### Setup
 
 1. Create a virtual environment (optional but recommended):
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate      # Mac or Linux
+```bash
+python -m venv .venv
+source .venv/bin/activate      # Mac or Linux
+```
 
 2. Install dependencies
 
@@ -274,3 +276,7 @@ Response: In this recommendation system, a weighted scoring function and sorting
 For more details, refer to the full write-up:
 - [Model Card](model_card.md)
 - [Reflection Notes](reflection.md)
+
+## AI Usage Note
+
+>**Note:** This project was developed with assistance from AI-generated code suggestions. However, the final implementation was manually reviewed, tested, and verified to ensure correctness, functionality, and alignment with the assignment requirements.
