@@ -279,4 +279,4 @@ For more details, refer to the full write-up:
 
 ## AI Usage Note
 
->**Note:** This project was developed with assistance from AI-generated code suggestions. However, the final implementation was manually reviewed, tested, and verified to ensure correctness, functionality, and alignment with the assignment requirements.
+>**Note:** This system was initially designed independently and later enhanced with assistance from AI tools. All final code was manually reviewed, tested, and verified to ensure correctness and alignment with the project requirements.
