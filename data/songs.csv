@@ -1,11 +1,21 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,popularity,release_decade,instrumentalness,liveness,mood_tags
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,82,2020,0.02,0.14,euphoric;summer;bright
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,68,2020,0.63,0.09,focused;study;calm
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,74,2010,0.05,0.18,driving;aggressive;workout
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,65,2020,0.71,0.08,rainy;soft;study
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,88,2020,0.00,0.22,workout;anthem;confident
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,61,2010,0.84,0.05,spacey;meditative;floating
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,58,2000,0.32,0.12,warm;acoustic;weekend
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,79,2010,0.11,0.17,retro;night;neon
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,72,2020,0.68,0.07,study;coding;steady
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,76,2020,0.01,0.16,feel-good;city;uplifting
+11,Golden Hour Drive,Harbor Sky,indie pop,relaxed,0.58,102,0.79,0.71,0.33,73,2010,0.03,0.11,roadtrip;warm;sunset
+12,Bassline Sprint,Circuit Kids,edm,intense,0.97,140,0.72,0.92,0.04,85,2020,0.00,0.19,festival;workout;adrenaline
+13,Velvet Blue,Afterglow,jazz,moody,0.31,84,0.42,0.47,0.81,57,1990,0.28,0.15,late-night;smoky;smooth
+14,Campfire Letters,Pine & String,acoustic,relaxed,0.29,88,0.74,0.38,0.95,64,2000,0.18,0.10,acoustic;cozy;storytelling
+15,Static Hearts,Chrome Youth,synthwave,focused,0.69,116,0.55,0.77,0.16,71,1980,0.08,0.13,retro;driving;coding
+16,Quiet Orbit,North Window,ambient,focused,0.24,64,0.58,0.34,0.93,59,2020,0.88,0.04,sleep;deep-focus;minimal
+17,Paper Planes Parade,Young Atlas,pop,happy,0.79,126,0.86,0.85,0.12,80,2010,0.01,0.20,party;bright;dance
+18,Shadow Boxing,River Static,rock,moody,0.72,128,0.39,0.61,0.14,70,2000,0.04,0.23,brooding;driving;gritty
+19,Sunday Sketchbook,Willow Tape,lofi,relaxed,0.33,76,0.67,0.52,0.83,63,2020,0.74,0.06,study;soft;homey
+20,City Pulse Nova,Arc Avenue,edm,happy,0.89,136,0.83,0.90,0.06,84,2020,0.00,0.21,dance;festival;euphoric
