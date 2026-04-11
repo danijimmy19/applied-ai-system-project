@@ -147,6 +147,59 @@ You can add more tests in `tests/test_recommender.py`.
 
 ---
 
+## Recommendation Results
+
+The CLI prints a formatted table with the title, artist, score, and the exact reasons behind each ranking.
+
+### Profile 1: High-Energy Pop
+
+Top songs:
+
+1. **Paper Planes Parade**
+2. **Sunrise City**
+3. **City Pulse Nova**
+
+Why this makes sense: the profile wants happy, danceable, high-energy music, so upbeat pop and EDM songs rise to the top.
+
+![High-Energy Pop output](screenshots/high-energy-pop.png)
+
+### Profile 2: Chill Study Lofi
+
+Top songs:
+
+1. **Focus Flow**
+2. **Library Rain**
+3. **Sunday Sketchbook**
+
+Why this makes sense: the profile wants low energy, acoustic-friendly, study-oriented songs. Lofi tracks with `study`, `coding`, and `calm` tags score well.
+
+![Chill Study Lofi output](screenshots/chill-study-lofi.png)
+
+### Profile 3: Festival EDM
+
+Top songs:
+
+1. **Bassline Sprint**
+2. **City Pulse Nova**
+3. **Gym Hero**
+
+Why this makes sense: the profile strongly rewards intense energy, fast tempo, high danceability, and festival/workout tags.
+
+![Festival EDM output](screenshots/festival-edm.png)
+
+### Profile 4: Acoustic Wind-Down
+
+Top songs:
+
+1. **Campfire Letters**
+2. **Coffee Shop Stories**
+3. **Sunday Sketchbook**
+
+Why this makes sense: the profile prefers low energy, relaxed mood, strong acousticness, and cozy tags.
+
+![Acoustic Wind-Down output](screenshots/acoustic-wind-down.png)
+
+---
 ## Experiments You Tried
 
 Use this section to document the experiments you ran. For example:
@@ -154,6 +207,36 @@ Use this section to document the experiments you ran. For example:
 - What happened when you changed the weight on genre from 2.0 to 0.5
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
+
+Response:
+### Experiment 1: Different user profiles
+
+The same scoring code behaved very differently depending on the profile.
+
+- **High-Energy Pop** pushed danceable pop and bright EDM upward.
+- **Chill Study Lofi** moved slow, acoustic-friendly lofi songs to the top.
+- **Festival EDM** favored high-tempo, intense tracks, even when they were not pure EDM.
+- **Acoustic Wind-Down** shifted toward cozy, low-energy, acoustic songs.
+
+This showed that the profile really does control the output, rather than the system always recommending the same top songs.
+
+### Experiment 2: Compare ranking modes
+
+I used the `Festival EDM` profile to compare ranking strategies.
+
+- In `balanced` mode, the top songs were still mostly EDM, but genre and mood mattered more.
+- In `energy_similarity` mode, **Gym Hero** and **Storm Runner** climbed higher because they are very close on energy and tempo, even though they are pop/rock instead of EDM.
+
+That experiment made the system feel more realistic: different platforms or product goals could legitimately choose different ranking rules.
+
+### Experiment 3: Diversity penalty
+
+Without a diversity step, repeated artists or genres can dominate the list. With the diversity penalty turned on:
+
+- duplicate artists get a larger penalty
+- duplicate genres get a smaller penalty
+
+A good example is the `Chill Study Lofi` profile. **Midnight Coding** still ranks well, but it drops below **Quiet Orbit** because **Focus Flow** from the same artist already appeared earlier.
 
 ---
 
@@ -169,6 +252,15 @@ Examples:
 
 You will go deeper on this in your model card.
 
+Response: The existing recommendation system is very limited to what it can do. 
+
+- The catalog is tiny, so some users will not have enough true matches.
+- The weights are hand-tuned, not learned from real listening behavior.
+- Genre labels are coarse and subjective.
+- The popularity bonus can bias the system toward already-strong songs.
+- Mood is simplified to one label plus tags, even though real taste is much more complex.
+- The diversity penalty improves fairness a little, but it is still a very small rule-based fix.
+
 ---
 
 ## Reflection
@@ -181,6 +273,12 @@ Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
+
+Response: In this recommendation syste,, a weighted scoring function and sorting already creates recommendations that look international. Feature selection, label definitions, and weights are very important for recommendations to feel convincing. A single change to energy weight or genre weight can change the behavior of an entire system.
+
+For more details, refer to the full write-up:
+- [Model Card](model_card.md)
+- [Reflection Notes](reflection.md)
 
 
 ---
