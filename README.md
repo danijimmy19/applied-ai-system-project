@@ -144,7 +144,7 @@ Run the starter tests with:
 pytest
 ```
 
-You can add more tests in `tests/test_recommender.py`.
+Test cases are available in `tests/test_recommender.py`.
 
 ![Pytest Results](screenshots/additional-test-cases.png)
 
