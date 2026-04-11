@@ -9,8 +9,60 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
-from recommender import load_songs, recommend_songs
+from pathlib import Path
+from tabulate import tabulate
+from src.recommender import load_songs, recommend_songs
 
+PROFILES = {
+    "High-Energy Pop": {
+        "genre": "pop",
+        "mood": "happy",
+        "energy": 0.85,
+        "tempo_bpm": 126,
+        "valence": 0.82,
+        "danceability": 0.84,
+        "likes_acoustic": False,
+        "preferred_decade": 2020,
+        "desired_tags": ["dance", "bright", "party"],
+        "ranking_mode": "balanced",
+    },
+    "Chill Study Lofi": {
+        "genre": "lofi",
+        "mood": "focused",
+        "energy": 0.35,
+        "tempo_bpm": 78,
+        "valence": 0.58,
+        "danceability": 0.55,
+        "likes_acoustic": True,
+        "preferred_decade": 2020,
+        "desired_tags": ["study", "coding", "calm"],
+        "ranking_mode": "genre_first",
+    },
+    "Festival EDM": {
+        "genre": "edm",
+        "mood": "intense",
+        "energy": 0.95,
+        "tempo_bpm": 138,
+        "valence": 0.76,
+        "danceability": 0.90,
+        "likes_acoustic": False,
+        "preferred_decade": 2020,
+        "desired_tags": ["festival", "workout", "euphoric"],
+        "ranking_mode": "energy_similarity",
+    },
+    "Acoustic Wind-Down": {
+        "genre": "acoustic",
+        "mood": "relaxed",
+        "energy": 0.28,
+        "tempo_bpm": 86,
+        "valence": 0.70,
+        "danceability": 0.40,
+        "likes_acoustic": True,
+        "preferred_decade": 2000,
+        "desired_tags": ["cozy", "acoustic", "storytelling"],
+        "ranking_mode": "balanced",
+    },
+}
 
 def main() -> None:
     songs = load_songs("data/songs.csv") 
