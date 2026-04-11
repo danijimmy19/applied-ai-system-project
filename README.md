@@ -264,14 +264,12 @@ Response: The existing recommendation system is very limited to what it can do.
 
 ## Reflection
 
-[**Model Card**](model_card.md)
-
 Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
-Response: In this recommendation syste,, a weighted scoring function and sorting already creates recommendations that look international. Feature selection, label definitions, and weights are very important for recommendations to feel convincing. A single change to energy weight or genre weight can change the behavior of an entire system.
+Response: In this recommendation system, a weighted scoring function and sorting already creates recommendations that look international. Feature selection, label definitions, and weights are very important for recommendations to feel convincing. A single change to energy weight or genre weight can change the behavior of an entire system.
 
 For more details, refer to the full write-up:
 - [Model Card](model_card.md)
